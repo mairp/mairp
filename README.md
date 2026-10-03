@@ -24,6 +24,7 @@ Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published und
 
 ## Agents I use every day
 
+- [Spec-driven batch](https://github.com/mairp/claude-plugins/tree/master/plugins/speckit-batch): runs a Spec Kit command over a range of specs on a chosen harness and model, several features in parallel.
 - [Linky](https://github.com/mairp/kedin): drafts a LinkedIn post in my voice every morning and publishes only after I approve it (the link is the public demo).
 - Local AI analyst: a weekly buy-or-wait read on local inference hardware against hosted frontier models, checked against written buy triggers and a ledger.
 - [Observability digest](https://github.com/mairp/agent-observability-stack): a daily Telegram summary of the agent fleet and its host.
@@ -32,7 +33,6 @@ Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published und
 - Eterna: agentic RAG over InfiniBand, RDMA, RoCE and HPC material.
 - [Havan](https://github.com/mairp/havan): hunts flight deals and returns a ranked shortlist (the link is the public demo).
 - Release watcher: polls upstream release tags every 15 minutes and fast-forwards my local clones, never merging or running repo code.
-- [Spec-driven batch](https://github.com/mairp/claude-plugins/tree/master/plugins/speckit-batch): runs a Spec Kit command over a range of specs on a chosen harness and model, several features in parallel.
 - [video-to-deck](https://github.com/mairp/video-to-deck): turns videos into Marp slide decks using local Whisper, OCR and a fresh agent per video.
 - [kanban](https://github.com/mairp/kanban): persistent kanban board with a Claude and Telegram front end.
 - [Digital twin](https://mairp.ai): answers questions about my work on mairp.ai.
