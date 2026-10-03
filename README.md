@@ -16,18 +16,18 @@
 
 ## Agents I use every day
 
-- Linky: drafts a LinkedIn post in my voice every morning and publishes only after I approve it (public demo: [kedin](https://github.com/mairp/kedin)).
+- [Linky](https://github.com/mairp/kedin): drafts a LinkedIn post in my voice every morning and publishes only after I approve it (the link is the public demo).
 - Local AI analyst: a weekly buy-or-wait read on local inference hardware against hosted frontier models, checked against written buy triggers and a ledger.
-- Observability digest: a daily Telegram summary of the agent fleet and its host, generated from [agent-observability-stack](https://github.com/mairp/agent-observability-stack).
-- Portfolio sync: keeps [mairp.ai](https://mairp.ai) and its digital twin's knowledge base in step with my public repos, daily.
-- Relay: a NetOps and infrastructure agent I reach over Telegram; it works cards from the kanban board.
+- [Observability digest](https://github.com/mairp/agent-observability-stack): a daily Telegram summary of the agent fleet and its host.
+- [Portfolio sync](https://mairp.ai): keeps mairp.ai and its digital twin's knowledge base in step with my public repos, daily.
+- Relay: a NetOps and infrastructure agent I reach over Telegram; it works cards from the [kanban](https://github.com/mairp/kanban) board.
 - Eterna: agentic RAG over InfiniBand, RDMA, RoCE and HPC material.
-- Havan: hunts flight deals and returns a ranked shortlist (public demo: [havan](https://github.com/mairp/havan)).
+- [Havan](https://github.com/mairp/havan): hunts flight deals and returns a ranked shortlist (the link is the public demo).
 - Release watcher: polls upstream release tags every 15 minutes and fast-forwards my local clones, never merging or running repo code.
-- Spec-driven batch: runs a Spec Kit command over a range of specs on a chosen harness and model, several features in parallel.
+- [Spec-driven batch](https://github.com/mairp/claude-plugins/tree/master/plugins/speckit-batch): runs a Spec Kit command over a range of specs on a chosen harness and model, several features in parallel.
 - [video-to-deck](https://github.com/mairp/video-to-deck): turns videos into Marp slide decks using local Whisper, OCR and a fresh agent per video.
 - [kanban](https://github.com/mairp/kanban): persistent kanban board with a Claude and Telegram front end.
-- Digital twin: answers questions about my work on [mairp.ai](https://mairp.ai).
+- [Digital twin](https://mairp.ai): answers questions about my work on mairp.ai.
 
 ## Lab tooling
 
