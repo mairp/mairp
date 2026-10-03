@@ -2,8 +2,8 @@
 
 ## Agentic network operations
 
-- [agentic-netops](https://github.com/mairp/agentic-netops): AGNTCY and LangGraph agents turn intent into Kubernetes CRs, controllers reconcile them onto a live SONiC EVPN/VXLAN fabric, and gNMI telemetry closes the loop. Runs in containerlab and kind. Built with [Specstride](https://github.com/mairp/specstride).
-- [agentic-netops-srl](https://github.com/mairp/agentic-netops-srl): the same approach on Nokia SR Linux: a declarative EVPN/VXLAN fabric control plane with a guarded multi-agent intent tier. Built with [Specstride](https://github.com/mairp/specstride).
+- [agentic-netops](https://github.com/mairp/agentic-netops): AGNTCY and LangGraph agents turn intent into Kubernetes CRs, controllers reconcile them onto a live SONiC EVPN/VXLAN fabric, and gNMI telemetry closes the loop. Runs in containerlab and kind. Built with [Specstride](https://specstride.ai).
+- [agentic-netops-srl](https://github.com/mairp/agentic-netops-srl): the same approach on Nokia SR Linux: a declarative EVPN/VXLAN fabric control plane with a guarded multi-agent intent tier. Built with [Specstride](https://specstride.ai).
 - [agentic-ops-bench](https://github.com/mairp/agentic-ops-bench): model-by-harness benchmark on real ops tasks (AIOps, NetDevOps, HPC, inference, RAG, tool loops). Local 30B-class models on one RTX 3090 against hosted frontier models.
 
 ## Network labs
@@ -16,8 +16,8 @@ Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published und
 
 ## Agent harnesses and infrastructure
 
-- [specstride](https://github.com/mairp/specstride): spec-driven autonomous coding orchestrator. Drives an agent through Spec Kit phases behind an LLM critic gate, diagnoses stuck phases, and tunes its own per-phase settings.
-- [mixture-of-loops](https://github.com/mairp/mixture-of-loops): generates provenance-bound, unattended Specstride pipelines from Spec Kit artifacts. Built with [Specstride](https://github.com/mairp/specstride).
+- [specstride](https://specstride.ai): spec-driven autonomous coding orchestrator. Drives an agent through Spec Kit phases behind an LLM critic gate, diagnoses stuck phases, and tunes its own per-phase settings.
+- [mixture-of-loops](https://github.com/mairp/mixture-of-loops): generates provenance-bound, unattended Specstride pipelines from Spec Kit artifacts. Built with [Specstride](https://specstride.ai).
 - [agent-observability-stack](https://github.com/mairp/agent-observability-stack): self-hosted observability for LLM agents and the Linux host running them. Prometheus, Grafana, Loki, Tempo and OTel, with Arize Phoenix as a second trace backend for LLM calls. Metrics and traces for OpenClaw, LiteLLM, Claude Code and RAG.
 - [qmd-memory-stack](https://github.com/mairp/qmd-memory-stack) and [qmd-gateway](https://github.com/mairp/qmd-gateway): local GPU-accelerated three-tier RAG memory for coding agents, and a shared writable MCP memory gateway for a multi-agent fleet.
 - [claude-plugins](https://github.com/mairp/claude-plugins): Claude Code plugin marketplace, including [antares-scan](https://github.com/mairp/antares-scan), first-pass security triage of a code folder with a local Granite-4.0 1B model.
