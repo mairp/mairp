@@ -1,10 +1,28 @@
-# What I build
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
+  <img src="assets/hero-dark.svg" alt="What I build. Agents, networks and the harnesses that run them." width="100%">
+</picture>
+
+<p align="center"><code>Open source</code> · <code>Self-hosted</code> · <code>Spec-driven with <a href="https://specstride.ai">Specstride</a></code></p>
+
+<sub><code>// 01 · the loop</code></sub>
 
 ## Agentic network operations
+
+```text
+ intent ─▶ ┌────────┐  CRs  ┌─────────────┐ reconcile ┌────────┐
+           │ agents │ ────▶ │ controllers │ ────────▶ │ fabric │
+           └───▲────┘       └─────────────┘           └───┬────┘
+               │              gNMI telemetry              │
+               └──────────────────────────────────────────┘
+```
 
 - [agentic-netops](https://github.com/mairp/agentic-netops): AGNTCY and LangGraph agents turn intent into Kubernetes CRs, controllers reconcile them onto a live SONiC EVPN/VXLAN fabric, and gNMI telemetry closes the loop. Runs in containerlab and kind. Built with [Specstride](https://specstride.ai).
 - [agentic-netops-srl](https://github.com/mairp/agentic-netops-srl): the same approach on Nokia SR Linux: a declarative EVPN/VXLAN fabric control plane with a guarded multi-agent intent tier. Built with [Specstride](https://specstride.ai).
 - [agentic-ops-bench](https://github.com/mairp/agentic-ops-bench): model-by-harness benchmark on real ops tasks (AIOps, NetDevOps, HPC, inference, RAG, tool loops). Local 30B-class models on one RTX 3090 against hosted frontier models.
+
+<sub><code>// 02 · labs</code></sub>
 
 ## Network labs
 
@@ -14,6 +32,8 @@ Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published und
 - [sros-anysec-lab](https://github.com/srl-labs/sros-anysec-lab): quantum-safe ANYsec encryption demo on SR OS FP5 vSIMs.
 - [sros-anysec-macsec-lab](https://github.com/srl-labs/sros-anysec-macsec-lab): quantum-safe ANYsec and MACsec together in one lab.
 
+<sub><code>// 03 · harnesses</code></sub>
+
 ## Agent harnesses and infrastructure
 
 - [specstride](https://specstride.ai): spec-driven autonomous coding orchestrator. Drives an agent through Spec Kit phases behind an LLM critic gate, diagnoses stuck phases, and tunes its own per-phase settings.
@@ -21,6 +41,8 @@ Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published und
 - [agent-observability-stack](https://github.com/mairp/agent-observability-stack): self-hosted observability for LLM agents and the Linux host running them. Prometheus, Grafana, Loki, Tempo and OTel, with Arize Phoenix as a second trace backend for LLM calls. Metrics and traces for OpenClaw, LiteLLM, Claude Code and RAG.
 - [qmd-memory-stack](https://github.com/mairp/qmd-memory-stack) and [qmd-gateway](https://github.com/mairp/qmd-gateway): local GPU-accelerated three-tier RAG memory for coding agents, and a shared writable MCP memory gateway for a multi-agent fleet.
 - [claude-plugins](https://github.com/mairp/claude-plugins): Claude Code plugin marketplace, including [antares-scan](https://github.com/mairp/antares-scan), first-pass security triage of a code folder with a local Granite-4.0 1B model.
+
+<sub><code>// 04 · the fleet</code></sub>
 
 ## Agents I use every day
 
@@ -37,10 +59,14 @@ Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published und
 - [kanban](https://github.com/mairp/kanban): persistent kanban board with a Claude and Telegram front end.
 - [Digital twin](https://mairp.ai): answers questions about my work on mairp.ai.
 
+<sub><code>// 05 · tooling</code></sub>
+
 ## Lab tooling
 
 - [kind-cilium-hubble-cluster](https://github.com/mairp/kind-cilium-hubble-cluster): observable Kubernetes cluster with kind, Cilium and Hubble from scratch.
 - [gpu_rtx_3090](https://github.com/mairp/gpu_rtx_3090): safe power-cycle scripts for an RTX 3090 Thunderbolt eGPU.
 - [certforge](https://github.com/mairp/certforge): small OpenSSL CLI for CSRs and self-signed certificates from a .cnf.
 
-[mairp.ai](https://mairp.ai) · [LinkedIn](https://www.linkedin.com/in/marlon-paz-62b02366/)
+---
+
+<p align="center"><code><a href="https://mairp.ai">mairp.ai</a></code> · <code><a href="https://specstride.ai">specstride.ai</a></code> · <code><a href="https://www.linkedin.com/in/marlon-paz-62b02366/">LinkedIn</a></code></p>
