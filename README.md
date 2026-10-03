@@ -11,8 +11,8 @@
 Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published under [srl-labs](https://github.com/srl-labs).
 
 - [srl-sros-telemetry-lab](https://github.com/srl-labs/srl-sros-telemetry-lab): interactive streaming telemetry lab with SR Linux and SR OS, gNMI into Prometheus and Grafana.
-- [sros-anysec-lab](https://github.com/srl-labs/sros-anysec-lab): ANYsec demo on SR OS FP5 vSIMs.
-- [sros-anysec-macsec-lab](https://github.com/srl-labs/sros-anysec-macsec-lab): ANYsec and MACsec together in one lab.
+- [sros-anysec-lab](https://github.com/srl-labs/sros-anysec-lab): quantum-safe ANYsec encryption demo on SR OS FP5 vSIMs.
+- [sros-anysec-macsec-lab](https://github.com/srl-labs/sros-anysec-macsec-lab): quantum-safe ANYsec and MACsec together in one lab.
 
 ## Agent harnesses and infrastructure
 
