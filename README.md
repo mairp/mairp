@@ -6,6 +6,14 @@
 - [agentic-netops-srl](https://github.com/mairp/agentic-netops-srl): the same approach on Nokia SR Linux: a declarative EVPN/VXLAN fabric control plane with a guarded multi-agent intent tier.
 - [agentic-ops-bench](https://github.com/mairp/agentic-ops-bench): model-by-harness benchmark on real ops tasks (AIOps, NetDevOps, HPC, inference, RAG, tool loops). Local 30B-class models on one RTX 3090 against hosted frontier models.
 
+## Network labs
+
+Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published under [srl-labs](https://github.com/srl-labs).
+
+- [srl-sros-telemetry-lab](https://github.com/srl-labs/srl-sros-telemetry-lab): interactive streaming telemetry lab with SR Linux and SR OS, gNMI into Prometheus and Grafana.
+- [sros-anysec-lab](https://github.com/srl-labs/sros-anysec-lab): ANYsec demo on SR OS FP5 vSIMs.
+- [sros-anysec-macsec-lab](https://github.com/srl-labs/sros-anysec-macsec-lab): ANYsec and MACsec together in one lab.
+
 ## Agent harnesses and infrastructure
 
 - [specstride](https://github.com/mairp/specstride): spec-driven autonomous coding orchestrator. Drives an agent through Spec Kit phases behind an LLM critic gate, diagnoses stuck phases, and tunes its own per-phase settings.
