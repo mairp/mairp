@@ -46,18 +46,19 @@ Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published und
 
 ## Agents and skills I use every day
 
-Skills, curated per session through `skillOverrides` profiles — these are the ones that stay on:
+Skills, curated per session through `skillOverrides` profiles — these are the ones that stay on; the host-ops ones live in [agent-skills](https://github.com/mairp/agent-skills):
 
-- [gpu-ops](https://github.com/mairp/gpu_rtx_3090): operates and inspects the RTX 3090 eGPU — status, free VRAM, drain, safe power cycles — through proven scripts, never ad-hoc commands.
+- [gpu-ops](https://github.com/mairp/agent-skills/tree/main/gpu-ops): operates and inspects the RTX 3090 eGPU — status, free VRAM, drain, safe power cycles — through proven scripts, never ad-hoc commands.
 - [speckit-batch](https://github.com/mairp/claude-plugins/tree/master/plugins/speckit-batch): runs a Spec Kit command over a range of specs on a chosen harness and model, several features in parallel.
 - [Specstride batch](https://github.com/mairp/mixture-of-loops/tree/master/skills/specstride-batch): runs the full Specstride / Mixture of Loops pipeline over a range of specs — one launch contract per feature, derived and executed unattended on Claude Code or dsh, model and reasoning pinned per run, a shared queue so two harnesses drain batches side by side.
 - [mixture-of-loops](https://github.com/mairp/mixture-of-loops): derives the provenance-bound, unattended Specstride pipelines that Specstride batch launches.
-- specstride-curate: curates and reconciles a Spec Kit spec corpus for a target host — deterministic backup and cross-artifact checks first, then research agents apply the curation prompt and refresh analyze reports.
-- spec-reconcile: writes a dated spec-vs-deployed sheet, read-only and in a fixed vocabulary — the drift audit between what a spec says and what is running.
-- [qmd-recall](https://github.com/mairp/qmd-gateway): recall from and write to the shared fleet memory, so every agent on the host inherits prior context and durable gotchas.
-- fleet-control: brings the LLM and observability stack up or down and returns a fleet health digest.
-- proxmox-ops and proxmox-triage: guarded lifecycle operations (snapshot before risky changes) and read-only diagnosis of Proxmox VMs and containers.
-- local-model-ops: which local model to pick on the 3090, when to think longer, and when to escalate to a hosted frontier model.
+- [specstride-curate](https://github.com/mairp/agent-skills/tree/main/specstride-curate): curates and reconciles a Spec Kit spec corpus for a target host — deterministic backup and cross-artifact checks first, then research agents apply the curation prompt and refresh analyze reports.
+- [jupyter-pull](https://github.com/mairp/agent-skills/tree/main/jupyter-pull): pulls every file off a remote Jupyter server I am logged into, given only the pasted session cookie.
+- [spec-reconcile](https://github.com/mairp/agent-skills/tree/main/spec-reconcile): writes a dated spec-vs-deployed sheet, read-only and in a fixed vocabulary — the drift audit between what a spec says and what is running.
+- [qmd-recall](https://github.com/mairp/agent-skills/tree/main/qmd-recall): recall from and write to the shared fleet memory, so every agent on the host inherits prior context and durable gotchas.
+- [fleet-control](https://github.com/mairp/agent-skills/tree/main/fleet-control): brings the LLM and observability stack up or down and returns a fleet health digest.
+- [proxmox-ops](https://github.com/mairp/agent-skills/tree/main/proxmox-ops) and [proxmox-triage](https://github.com/mairp/agent-skills/tree/main/proxmox-triage): guarded lifecycle operations (snapshot before risky changes) and read-only diagnosis of Proxmox VMs and containers.
+- [local-model-ops](https://github.com/mairp/agent-skills/tree/main/local-model-ops): which local model to pick on the 3090, when to think longer, and when to escalate to a hosted frontier model.
 
 Agents:
 
