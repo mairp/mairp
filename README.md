@@ -27,7 +27,7 @@
 ## Agent harnesses and infrastructure
 
 - [specstride](https://specstride.ai): spec-driven autonomous coding orchestrator. Drives an agent through Spec Kit phases behind an LLM critic gate, diagnoses stuck phases, and tunes its own per-phase settings.
-- [mixture-of-loops](https://github.com/mairp/mixture-of-loops): generates provenance-bound, unattended Specstride pipelines from Spec Kit artifacts. Built with [Specstride](https://specstride.ai).
+- [mixture-of-loops](https://github.com/mairp/mixture-of-loops): generates provenance-bound, unattended Specstride pipelines from Spec Kit artifacts, and ships [specstride-batch](https://github.com/mairp/mixture-of-loops/tree/master/skills/specstride-batch) to run that pipeline over batches of features at once. Built with [Specstride](https://specstride.ai).
 - [agent-observability-stack](https://github.com/mairp/agent-observability-stack): self-hosted observability for LLM agents and the Linux host running them. Prometheus, Grafana, Loki, Tempo and OTel, with Arize Phoenix as a second trace backend for LLM calls. Metrics and traces for OpenClaw, LiteLLM, Claude Code and RAG.
 - [qmd-memory-stack](https://github.com/mairp/qmd-memory-stack) and [qmd-gateway](https://github.com/mairp/qmd-gateway): local GPU-accelerated three-tier RAG memory for coding agents, and a shared writable MCP memory gateway for a multi-agent fleet.
 - [claude-plugins](https://github.com/mairp/claude-plugins): Claude Code plugin marketplace, including [antares-scan](https://github.com/mairp/antares-scan), first-pass security triage of a code folder with a local Granite-4.0 1B model.
@@ -47,6 +47,7 @@ Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published und
 ## Agents and skills I use every day
 
 - [Spec-driven batch](https://github.com/mairp/claude-plugins/tree/master/plugins/speckit-batch): runs a Spec Kit command over a range of specs on a chosen harness and model, several features in parallel.
+- [Specstride batch](https://github.com/mairp/mixture-of-loops/tree/master/skills/specstride-batch): runs the full Specstride / Mixture of Loops pipeline over a range of specs — one launch contract per feature, derived and executed unattended on Claude Code or dsh, model and reasoning pinned per run, a shared queue so two harnesses drain batches side by side.
 - [Linky](https://github.com/mairp/kedin): drafts a LinkedIn post in my voice every morning and publishes only after I approve it (the link is the public demo).
 - Local AI analyst: a weekly buy-or-wait read on local inference hardware against hosted frontier models, checked against written buy triggers and a ledger.
 - [Observability digest](https://github.com/mairp/agent-observability-stack): a daily Telegram summary of the agent fleet and its host.
