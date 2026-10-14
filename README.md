@@ -34,7 +34,7 @@
                    └──────────────────────────────────────────┘
 ```
 
-- [trustcircle](https://github.com/mairp/trustcircle): AI governance control plane. Keeps a continuously reconciled inventory of every AI asset inside a declared boundary, routes decision packages to people who actually hold the authority (separation of duties, no self-approval), turns failing controls into owned cases, and exports signed evidence packages an auditor can verify. Maps controls to ISO/IEC 42001, the EU AI Act and NIST AI RMF, and reports readiness, never certification. One script provisions it on Docker Compose or Kubernetes.
+- [trustcircle](https://github.com/mairp/trustcircle): AI governance control plane. Keeps a continuously reconciled inventory of every AI asset inside a declared boundary, routes decision packages to people who actually hold the authority (separation of duties, no self-approval), turns failing controls into owned cases, and exports signed evidence packages an auditor can verify. Maps controls to ISO/IEC 42001, the EU AI Act and NIST AI RMF, and reports readiness, never certification. One script provisions it on Docker Compose or Kubernetes. Apache-2.0; [47-second UI tour](https://github.com/mairp/trustcircle#see-it-running).
 
 <sub><code>// 03 · harnesses</code></sub>
 
