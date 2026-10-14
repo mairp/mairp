@@ -22,7 +22,21 @@
 - [agentic-netops-srl](https://github.com/mairp/agentic-netops-srl): the same approach on Nokia SR Linux: a declarative EVPN/VXLAN fabric control plane with a guarded multi-agent intent tier. Built with [Specstride](https://specstride.ai).
 - [agentic-ops-bench](https://github.com/mairp/agentic-ops-bench): model-by-harness benchmark on real ops tasks (AIOps, NetDevOps, HPC, inference, RAG, tool loops). Local 30B-class models on one RTX 3090 against hosted frontier models.
 
-<sub><code>// 02 · harnesses</code></sub>
+<sub><code>// 02 · governance</code></sub>
+
+## AI governance
+
+```text
+             ┌───────────┐ package ┌──────────┐ decide ┌──────────────┐
+ discover ─▶ │ inventory │ ──────▶ │ approver │ ─────▶ │ audit ledger │
+             └─────▲─────┘         └──────────┘        └──────┬───────┘
+                   │   controls · evidence · readiness        │
+                   └──────────────────────────────────────────┘
+```
+
+- [trustcircle](https://github.com/mairp/trustcircle): AI governance control plane. Keeps a continuously reconciled inventory of every AI asset inside a declared boundary, routes decision packages to people who actually hold the authority (separation of duties, no self-approval), turns failing controls into owned cases, and exports signed evidence packages an auditor can verify. Maps controls to ISO/IEC 42001, the EU AI Act and NIST AI RMF, and reports readiness, never certification. One script provisions it on Docker Compose or Kubernetes.
+
+<sub><code>// 03 · harnesses</code></sub>
 
 ## Agent harnesses and infrastructure
 
@@ -32,7 +46,7 @@
 - [qmd-memory-stack](https://github.com/mairp/qmd-memory-stack) and [qmd-gateway](https://github.com/mairp/qmd-gateway): local GPU-accelerated three-tier RAG memory for coding agents, and a shared writable MCP memory gateway for a multi-agent fleet.
 - [claude-plugins](https://github.com/mairp/claude-plugins): Claude Code plugin marketplace, including [antares-scan](https://github.com/mairp/antares-scan), first-pass security triage of a code folder with a local Granite-4.0 1B model.
 
-<sub><code>// 03 · labs</code></sub>
+<sub><code>// 04 · labs</code></sub>
 
 ## Network labs
 
@@ -42,7 +56,7 @@ Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published und
 - [sros-anysec-lab](https://github.com/srl-labs/sros-anysec-lab): quantum-safe ANYsec encryption demo on SR OS FP5 vSIMs.
 - [sros-anysec-macsec-lab](https://github.com/srl-labs/sros-anysec-macsec-lab): quantum-safe ANYsec and MACsec together in one lab.
 
-<sub><code>// 04 · the fleet</code></sub>
+<sub><code>// 05 · the fleet</code></sub>
 
 ## Agents and skills I use every day
 
@@ -76,7 +90,7 @@ Agents:
 - [kanban](https://github.com/mairp/kanban): persistent kanban board with a Claude and Telegram front end.
 - [Digital twin](https://mairp.ai): answers questions about my work on mairp.ai.
 
-<sub><code>// 05 · tooling</code></sub>
+<sub><code>// 06 · tooling</code></sub>
 
 ## Lab tooling
 
