@@ -40,11 +40,15 @@
 
 ## Agent harnesses and infrastructure
 
-- [specstride](https://specstride.ai): spec-driven autonomous coding orchestrator. Drives an agent through Spec Kit phases behind an LLM critic gate, diagnoses stuck phases, and tunes its own per-phase settings.
-- [mixture-of-loops](https://github.com/mairp/mixture-of-loops): generates provenance-bound, unattended Specstride pipelines from Spec Kit artifacts, and ships [specstride-batch](https://github.com/mairp/mixture-of-loops/tree/master/skills/specstride-batch) to run that pipeline over batches of features at once. Built with [Specstride](https://specstride.ai).
+- [Specstride](https://github.com/mairp/specstride-plugin): development governance for coding agents, as a Claude Code plugin. Takes a Spec Kit feature to done phase by phase, unattended: a separate reviewer must approve each phase, and every approval leaves a signed record and its own commit. Install with `/plugin marketplace add mairp/specstride-plugin`, then `/plugin install specstride@specstride-marketplace`.
+  - [specstride-core](https://github.com/mairp/specstride-core): the engine, its contracts, loop layers, runtime and adapters, published as the packages every host pins. Apache-2.0.
+  - [specstride-dsh](https://github.com/mairp/specstride-dsh): the dsh host of Specstride: skills, shim, doctor and eval driver over the pinned core.
+  - [specstride-example](https://github.com/mairp/specstride-example): try Specstride in five minutes on a tiny three-phase Spec Kit feature.
+  - [specstride (Python)](https://github.com/mairp/specstride): the earlier Python orchestrator, with an LLM critic gate, stuck-phase diagnosis and self-tuned per-phase settings.
+- [mixture-of-loops](https://github.com/mairp/mixture-of-loops): generates provenance-bound, unattended Specstride pipelines from Spec Kit artifacts, and ships [specstride-batch](https://github.com/mairp/mixture-of-loops/tree/main/skills/specstride-batch) to run that pipeline over batches of features at once. Built with [Specstride](https://specstride.ai).
 - [agent-observability-stack](https://github.com/mairp/agent-observability-stack): self-hosted observability for LLM agents and the Linux host running them. Prometheus, Grafana, Loki, Tempo and OTel, with Arize Phoenix as a second trace backend for LLM calls. Metrics and traces for OpenClaw, LiteLLM, Claude Code and RAG.
 - [qmd-memory-stack](https://github.com/mairp/qmd-memory-stack) and [qmd-gateway](https://github.com/mairp/qmd-gateway): local GPU-accelerated three-tier RAG memory for coding agents, and a shared writable MCP memory gateway for a multi-agent fleet.
-- [claude-plugins](https://github.com/mairp/claude-plugins): Claude Code plugin marketplace, including [antares-scan](https://github.com/mairp/antares-scan), first-pass security triage of a code folder with a local Granite-4.0 1B model.
+- [claude-plugins](https://github.com/mairp/claude-plugins): Claude Code plugin marketplace: antares-scan, mixture-of-loops, qmd-recall, gpu-ops, video-to-deck, speckit-batch and specstride. [antares-scan](https://github.com/mairp/antares-scan) does first-pass security triage of a code folder with a local Granite-4.0 1B model.
 
 <sub><code>// 04 · labs</code></sub>
 
@@ -66,7 +70,7 @@ Skills, curated per session through `skillOverrides` profiles — these are the 
 - [speckit-batch](https://github.com/mairp/claude-plugins/tree/master/plugins/speckit-batch): runs a Spec Kit command over a range of specs on a chosen harness and model, several features in parallel.
 - [speckit-* suite](https://github.com/github/spec-kit): the Spec Kit workflow I run daily across Claude Code and dsh — specify, clarify, constitution, plan, tasks, implement, analyze, checklist, converge, taskstoissues — one skill per artifact.
 - [specstride-reverse](https://github.com/mairp/agent-skills/tree/main/specstride-reverse): reverse-engineers an existing codebase into a complete as-is Spec Kit feature (constitution, spec, checklist, plan, research, data model, contracts, ticked tasks) with `specstride reverse`, so the pipeline can run on projects with no specs yet.
-- [Specstride batch](https://github.com/mairp/mixture-of-loops/tree/master/skills/specstride-batch): runs the full Specstride / Mixture of Loops pipeline over a range of specs — one launch contract per feature, derived and executed unattended on Claude Code or dsh, model and reasoning pinned per run, a shared queue so two harnesses drain batches side by side.
+- [Specstride batch](https://github.com/mairp/mixture-of-loops/tree/main/skills/specstride-batch): runs the full Specstride / Mixture of Loops pipeline over a range of specs — one launch contract per feature, derived and executed unattended on Claude Code or dsh, model and reasoning pinned per run, a shared queue so two harnesses drain batches side by side.
 - [mixture-of-loops](https://github.com/mairp/mixture-of-loops): derives the provenance-bound, unattended Specstride pipelines that Specstride batch launches.
 - [specstride-curate](https://github.com/mairp/agent-skills/tree/main/specstride-curate): curates and reconciles a Spec Kit spec corpus for a target host, unattended end to end — auto-research agents verify the host facts and distill aesthetic references into cited briefs, a deterministic script backs up and cross-checks, curation agents apply the retargeting rules, analyze reports refresh.
 - [jupyter-pull](https://github.com/mairp/agent-skills/tree/main/jupyter-pull): pulls every file off a remote Jupyter server I am logged into, given only the pasted session cookie.
@@ -89,8 +93,16 @@ Agents:
 - [video-to-deck](https://github.com/mairp/video-to-deck): turns videos into Marp slide decks using local Whisper, OCR and a fresh agent per video.
 - [kanban](https://github.com/mairp/kanban): persistent kanban board with a Claude and Telegram front end.
 - [Digital twin](https://mairp.ai): answers questions about my work on mairp.ai.
+- [duby](https://github.com/mairp/duby): investment-analysis agent that monitors Telegram trading signals, enriches them with live market data, and serves position-sized analysis through a dashboard and a Telegram bot.
 
-<sub><code>// 06 · tooling</code></sub>
+<sub><code>// 06 · sites</code></sub>
+
+## Sites
+
+- [mairp.ai](https://github.com/mairp/mairp.ai): the website of my consulting practice, Network & AI Systems Consulting, live at [mairp.ai](https://mairp.ai). Built on the specstride.ai template.
+- [specstride.ai](https://github.com/mairp/specstride.ai): the Specstride website, live at [specstride.ai](https://specstride.ai). Products, hosts and FAQ entries are data, so it doubles as a reusable Astro template (MIT).
+
+<sub><code>// 07 · tooling</code></sub>
 
 ## Lab tooling
 
