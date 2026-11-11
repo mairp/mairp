@@ -18,11 +18,56 @@
                └──────────────────────────────────────────┘
 ```
 
-- [agentic-netops](https://github.com/mairp/agentic-netops): AGNTCY and LangGraph agents turn intent into Kubernetes CRs, controllers reconcile them onto a live SONiC EVPN/VXLAN fabric, and gNMI telemetry closes the loop. Runs in containerlab and kind. Built with [Specstride](https://specstride.ai).
-- [agentic-netops-srl](https://github.com/mairp/agentic-netops-srl): the same approach on Nokia SR Linux: a declarative EVPN/VXLAN fabric control plane with a guarded multi-agent intent tier. Built with [Specstride](https://specstride.ai).
+- [agentic-netops](https://github.com/mairp/agentic-netops): AGNTCY and LangGraph agents turn intent into Kubernetes CRs, controllers reconcile them onto a live SONiC EVPN/VXLAN fabric, and gNMI telemetry closes the loop. Runs in containerlab and kind.
+- [agentic-netops-srl](https://github.com/mairp/agentic-netops-srl): the same approach on Nokia SR Linux: a declarative EVPN/VXLAN fabric control plane with a guarded multi-agent intent tier.
 - [agentic-ops-bench](https://github.com/mairp/agentic-ops-bench): model-by-harness benchmark on real ops tasks (AIOps, NetDevOps, HPC, inference, RAG, tool loops). Local 30B-class models on one RTX 3090 against hosted frontier models.
 
-<sub><code>// 02 · governance</code></sub>
+<sub><code>// 02 · specstride</code></sub>
+
+## Specstride: loop engineering for coding agents
+
+An agent that grades its own work says "done" when it isn't. [Specstride](https://specstride.ai) takes a Spec Kit feature to done phase by phase, unattended: the engine runs the tests first, then a separate reviewer, [an LLM judge with no tools](https://specstride.ai/#judge), must approve the change, and every approval is a signed record and its own commit. [Every loop has an end](https://specstride.ai/#engineering): capped attempts, named stop reasons, and a diagnosis before a retry.
+
+```text
+ ┌────────────────────┐   ┌────────────────────┐   ┌────────────────────┐
+ │ Claude Code plugin │   │      dsh host      │   │    plain shell     │
+ └─────────┬──────────┘   └─────────┬──────────┘   └─────────┬──────────┘
+           └────────────────────────┼────────────────────────┘
+                 CLI protocol v1 · argv in, exit code out
+                         ┌──────────▼──────────┐
+                         │   specstride-core   │  one pinned engine
+                         └─────────────────────┘
+          implement ─▶ verify ─▶ review ─▶ commit ─▶ next phase
+```
+
+| Variant | Runs in | Pick it when |
+|---|---|---|
+| [specstride-plugin](https://github.com/mairp/specstride-plugin) · [page](https://specstride.ai/products/claude-code-plugin/) | Claude Code | You work in Claude Code. Two skills, installed with two `/plugin` commands. |
+| [specstride-dsh](https://github.com/mairp/specstride-dsh) · [page](https://specstride.ai/products/specstride-dsh/) | dsh, the DeepSeek Harness | You work in dsh. Three skills, a shim, a doctor and an eval driver over the pinned core. |
+| [specstride-core](https://github.com/mairp/specstride-core) · [page](https://specstride.ai/products/specstride-core/) | Your shell | You run the `specstride` CLI on its own, or build a host for another agent. The engine, its contracts, loop layers, runtime and adapters. |
+
+Install the plugin with `/plugin marketplace add mairp/specstride-plugin`, then `/plugin install specstride@specstride-marketplace`. All three are Apache-2.0 and run the same loop: same gates, same records, same commits.
+
+- [specstride-example](https://github.com/mairp/specstride-example): try it in five minutes on a tiny three-phase Spec Kit feature.
+- [specstride.ai](https://github.com/mairp/specstride.ai): the website, with the loop, the judge and the three variants explained.
+- [specstride (Python)](https://github.com/mairp/specstride): the earlier Python orchestrator, with an LLM critic gate, stuck-phase diagnosis and self-tuned per-phase settings. It built the core.
+
+<sub><code>// 03 · built with specstride</code></sub>
+
+## Built with Specstride
+
+The evidence is in each repository's history: the engine commits every approved phase itself, as `specstride: phase N approved`.
+
+| Repository | What it is | Evidence |
+|---|---|---|
+| [agentic-netops](https://github.com/mairp/agentic-netops) | Intent to a live SONiC EVPN/VXLAN fabric, with agents, controllers and gNMI telemetry | [approved-phase commits](https://github.com/mairp/agentic-netops/search?q=%22phase%22+%22approved%22&type=commits), the early ones under the tool's former name |
+| [agentic-netops-srl](https://github.com/mairp/agentic-netops-srl) | The same approach on Nokia SR Linux | [approved-phase commits](https://github.com/mairp/agentic-netops-srl/search?q=%22phase%22+%22approved%22&type=commits) |
+| [specstride-core](https://github.com/mairp/specstride-core) | The Specstride engine, built by the earlier Python Specstride | [approved-phase commits](https://github.com/mairp/specstride-core/search?q=%22phase%22+%22approved%22&type=commits) |
+| [specstride-dsh](https://github.com/mairp/specstride-dsh) | The dsh host and its Kanban tab | [approved-phase commits](https://github.com/mairp/specstride-dsh/search?q=%22phase%22+%22approved%22&type=commits) |
+| [mixture-of-loops](https://github.com/mairp/mixture-of-loops) | Generates unattended Specstride pipelines from Spec Kit artifacts | the badge in its [README](https://github.com/mairp/mixture-of-loops#readme) |
+| [trustcircle](https://github.com/mairp/trustcircle) | AI governance control plane | [approved-phase commits](https://github.com/mairp/trustcircle/search?q=%22phase%22+%22approved%22&type=commits), from the same critic gate under the loop's earlier name |
+
+<sub><code>// 04 · governance</code></sub>
 
 ## AI governance
 
@@ -36,21 +81,16 @@
 
 - [trustcircle](https://github.com/mairp/trustcircle): AI governance control plane. Keeps a continuously reconciled inventory of every AI asset inside a declared boundary, routes decision packages to people who actually hold the authority (separation of duties, no self-approval), turns failing controls into owned cases, and exports signed evidence packages an auditor can verify. Maps controls to ISO/IEC 42001, the EU AI Act and NIST AI RMF, and reports readiness, never certification. One script provisions it on Docker Compose or Kubernetes. Apache-2.0; [UI tour, including the decision screens](https://github.com/mairp/trustcircle#see-it-running).
 
-<sub><code>// 03 · harnesses</code></sub>
+<sub><code>// 05 · harnesses</code></sub>
 
 ## Agent harnesses and infrastructure
 
-- [Specstride](https://github.com/mairp/specstride-plugin): development governance for coding agents, as a Claude Code plugin. Takes a Spec Kit feature to done phase by phase, unattended: a separate reviewer must approve each phase, and every approval leaves a signed record and its own commit. Install with `/plugin marketplace add mairp/specstride-plugin`, then `/plugin install specstride@specstride-marketplace`.
-  - [specstride-core](https://github.com/mairp/specstride-core): the engine, its contracts, loop layers, runtime and adapters, published as the packages every host pins. Apache-2.0.
-  - [specstride-dsh](https://github.com/mairp/specstride-dsh): the dsh host of Specstride: skills, shim, doctor and eval driver over the pinned core.
-  - [specstride-example](https://github.com/mairp/specstride-example): try Specstride in five minutes on a tiny three-phase Spec Kit feature.
-  - [specstride (Python)](https://github.com/mairp/specstride): the earlier Python orchestrator, with an LLM critic gate, stuck-phase diagnosis and self-tuned per-phase settings.
-- [mixture-of-loops](https://github.com/mairp/mixture-of-loops): generates provenance-bound, unattended Specstride pipelines from Spec Kit artifacts, and ships [specstride-batch](https://github.com/mairp/mixture-of-loops/tree/main/skills/specstride-batch) to run that pipeline over batches of features at once. Built with [Specstride](https://specstride.ai).
+- [mixture-of-loops](https://github.com/mairp/mixture-of-loops): generates provenance-bound, unattended Specstride pipelines from Spec Kit artifacts, and ships [specstride-batch](https://github.com/mairp/mixture-of-loops/tree/main/skills/specstride-batch) to run that pipeline over batches of features at once.
 - [agent-observability-stack](https://github.com/mairp/agent-observability-stack): self-hosted observability for LLM agents and the Linux host running them. Prometheus, Grafana, Loki, Tempo and OTel, with Arize Phoenix as a second trace backend for LLM calls. Metrics and traces for OpenClaw, LiteLLM, Claude Code and RAG.
 - [qmd-memory-stack](https://github.com/mairp/qmd-memory-stack) and [qmd-gateway](https://github.com/mairp/qmd-gateway): local GPU-accelerated three-tier RAG memory for coding agents, and a shared writable MCP memory gateway for a multi-agent fleet.
 - [claude-plugins](https://github.com/mairp/claude-plugins): Claude Code plugin marketplace: antares-scan, mixture-of-loops, qmd-recall, gpu-ops, video-to-deck, speckit-batch and specstride. [antares-scan](https://github.com/mairp/antares-scan) does first-pass security triage of a code folder with a local Granite-4.0 1B model.
 
-<sub><code>// 04 · labs</code></sub>
+<sub><code>// 06 · labs</code></sub>
 
 ## Network labs
 
@@ -60,7 +100,13 @@ Containerlab labs for Nokia SR OS and SR Linux, built at Nokia and published und
 - [sros-anysec-lab](https://github.com/srl-labs/sros-anysec-lab): quantum-safe ANYsec encryption demo on SR OS FP5 vSIMs.
 - [sros-anysec-macsec-lab](https://github.com/srl-labs/sros-anysec-macsec-lab): quantum-safe ANYsec and MACsec together in one lab.
 
-<sub><code>// 05 · the fleet</code></sub>
+<sub><code>// 07 · physical ai</code></sub>
+
+## Physical AI
+
+- [nb-robotic-ai-hk](https://github.com/mairp/nb-robotic-ai-hk): our team's work from the NVIDIA × Nebius "Sim to Table" hackathon (Berlin, October 2026): an SO-101 arm, Isaac Sim demos, Cosmos Reason curation, and GR00T N1.7 training on Nebius. The write-up is the honest account handed to the judges, including the closed-loop result of 0 of 9.
+
+<sub><code>// 08 · the fleet</code></sub>
 
 ## Agents and skills I use every day
 
@@ -95,14 +141,14 @@ Agents:
 - [Digital twin](https://mairp.ai): answers questions about my work on mairp.ai.
 - [duby](https://github.com/mairp/duby): investment-analysis agent that monitors Telegram trading signals, enriches them with live market data, and serves position-sized analysis through a dashboard and a Telegram bot.
 
-<sub><code>// 06 · sites</code></sub>
+<sub><code>// 09 · sites</code></sub>
 
 ## Sites
 
 - [mairp.ai](https://github.com/mairp/mairp.ai): the website of my consulting practice, Network & AI Systems Consulting, live at [mairp.ai](https://mairp.ai). Built on the specstride.ai template.
 - [specstride.ai](https://github.com/mairp/specstride.ai): the Specstride website, live at [specstride.ai](https://specstride.ai). Products, hosts and FAQ entries are data, so it doubles as a reusable Astro template (MIT).
 
-<sub><code>// 07 · tooling</code></sub>
+<sub><code>// 10 · tooling</code></sub>
 
 ## Lab tooling
 
